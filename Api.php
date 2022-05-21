@@ -27,19 +27,9 @@ initX2d=0;
 "';
 $output = [];
 $data = [
-    'y' =>[
-        '0' =>[],
-    ],
-    't' => [
-        '0' =>[],
-    ],
-    'x' => [
-        '0' =>[],
-        '1' =>[],
-        '2' =>[],
-        '3' =>[],
-        '4' =>[]
-    ],
+    'y' =>[],
+    't' => [],
+    'x' => [],
 ];
 
 exec($command, $output);
@@ -54,13 +44,15 @@ foreach ($output as $row){
         }
     }
     if (count($numbers) == 7){
-        $data['y']['0'][] = $numbers[0];
-        $data['t']['0'][] = $numbers[1];
-        $data['x']['0'][] = $numbers[2];
-        $data['x']['1'][] = $numbers[3];
-        $data['x']['2'][] = $numbers[4];
-        $data['x']['3'][] = $numbers[5];
-        $data['x']['4'][] = $numbers[6];
+        $data['y'][] = $numbers[0];
+        $data['t'][] = $numbers[1];
+        $data['x'][] = [
+            $numbers[2],
+            $numbers[3],
+            $numbers[4],
+            $numbers[5],
+            $numbers[6]
+        ];
     }
 
 
