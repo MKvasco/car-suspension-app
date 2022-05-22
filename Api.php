@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 $token = "WebteToken";
-if(isset($_GET['token']))
+if(isset($_GET['token'])){
     if (strcmp($_GET['token'], $token) == 0){
         if (isset($_GET['r']) && isset($_GET['priklad']))
             http_response_code(400);
@@ -91,7 +91,7 @@ if(isset($_GET['token']))
             echo json_encode($data);
         }
     }else
-        http_response_code(400);
+        http_response_code(401);
 
-else
-    http_response_code(401);
+}else
+    http_response_code(400);
