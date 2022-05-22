@@ -31,9 +31,15 @@ if(isset($_GET['token']))
             "';
 
             $data = [
-                'y' =>[],
-                't' => [],
-                'x' => [],
+                "y" =>[],
+                "t" => [],
+                "x" => [
+                    "0" => [],
+                    "1" => [],
+                    "2" => [],
+                    "3" => [],
+                    "4" => []
+                ],
             ];
             $output = [];
             exec($command, $output);
@@ -50,13 +56,12 @@ if(isset($_GET['token']))
                 if (count($numbers) == 7){
                     $data['y'][] = $numbers[0];
                     $data['t'][] = $numbers[1];
-                    $data['x'][] = [
-                        $numbers[2],
-                        $numbers[3],
-                        $numbers[4],
-                        $numbers[5],
-                        $numbers[6]
-                    ];
+                    $data['x']["0"][] = $numbers[2];
+                    $data['x']["1"][] = $numbers[3];
+                    $data['x']["2"][] = $numbers[4];
+                    $data['x']["3"][] = $numbers[5];
+                    $data['x']["4"][] = $numbers[6];
+
                 }
             }
             http_response_code(200);
