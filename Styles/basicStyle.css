@@ -28,19 +28,25 @@ body{
 }
 h1{
     font-size: 40pt;
-    font-weight:400;
+    font-weight:lighter;
     text-align: center;
-    margin:0;
+    margin: 0 1%;
 }
 
 header{
     background: rgb(32, 34, 45);
     color: #f5f5f5;
-
 }
+
+h2{
+    color: whitesmoke;
+    margin: 0;
+    font-weight: lighter;
+    background-color: #20222f;
+    padding-left: 10px;
+}
+
 aside{
-
-
     height: 100%;
     width: 160px;
     position: fixed;
@@ -51,8 +57,6 @@ aside{
     overflow-x: hidden;
     padding-top: 5px;
     padding-left: 5px;
-
-
 }
 
 form{
@@ -70,6 +74,14 @@ form{
     height: auto;
     margin: auto 1%;
 
+}
+
+#checkboxes{
+    background-color: #202230;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+    border-bottom: 1px solid #b2badd;
 }
 
 #animation{

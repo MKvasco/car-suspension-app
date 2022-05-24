@@ -1,5 +1,4 @@
 
-
 .button{
     padding: 5px 2px;
     width:8em;
@@ -9,7 +8,6 @@
     border: none;
     border-radius: 2px;
     float: right;
-
 }
 
 .button:disabled{
@@ -121,11 +119,13 @@ input{
 /*  Checkbox style*/
 
 input[type=checkbox] + label{
-    display: block;
+    display: inline-block;
     margin-left: 1%;
     cursor: pointer;
     padding: 0.2em;
+    color:whitesmoke;
 }
+
 input[type=checkbox] {
     display: none;
 }
@@ -133,6 +133,7 @@ input[type=checkbox] {
 input[type=checkbox] + label:before {
     content: "\2714";
     border: 0.1em solid #000;
+    background-color: #39532e82;
     border-radius: 0.2em;
     display: inline-block;
     width: 1em;
@@ -149,7 +150,7 @@ input[type=checkbox] + label:active:before {
     transform: scale(0);
 }
 input[type=checkbox]:checked + label:before {
-    background-color: #2a2d3d;
+    background-color: #365c26;
     border-color: #20222e;
     color: #f8f0f0;
 }

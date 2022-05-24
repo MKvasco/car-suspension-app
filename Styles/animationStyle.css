@@ -88,8 +88,6 @@
 
 /* Animation 2*/
 
-
-
 .animation-box2{
     height:400px ;
     width:200px;
@@ -103,16 +101,12 @@
     top:50px;
     left:20px;
     position: absolute;
-
-    background-color: #365d25;
     z-index: 2;
+    background-color: #365d25;
     border-radius: 10px;
-
     border: 2px solid #73bf56;
     width: 150px;
     height: 80px;
-    text-align: center;
-    color:whitesmoke;
 }
 
 #M2{
@@ -125,8 +119,14 @@
     border: 2px solid #a2b6fe;
     width: 150px;
     height: 80px;
+}
+
+#M1, #M2{
     text-align: center;
     color:whitesmoke;
+    line-height: 80px;
+    vertical-align: middle;
+    font-size: 12pt;
 }
 
 #spring1{

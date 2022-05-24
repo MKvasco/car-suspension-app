@@ -138,7 +138,7 @@ function myLoop(i) {
                 document.getElementById('playButton').disabled=false;
             }
         },
-        5)
+        2)
 }
 
 
