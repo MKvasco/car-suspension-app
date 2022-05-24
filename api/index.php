@@ -1,13 +1,10 @@
 <?php
 session_start();
-  if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "en"; }
-  if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "en"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
 
 
 require "lang-" . $_SESSION["lang"] . ".php";
-<<<<<<< HEAD
-  ?>
-=======
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // (A) CONNECT TO DATABASE - CHANGE SETTINGS TO YOUR OWN!
 $dbHost = "localhost";
@@ -30,7 +27,7 @@ $handle = fopen($csvFile, "w");
 if ($handle === false) { exit("Error creating $csvFile"); }
 
 // (C) GET USERS FROM DATABASE + WRITE TO FILE
-$stmt = $pdo->prepare("SELECT * FROM `users`");
+$stmt = $pdo->prepare("SELECT * FROM `finals`");  /////////////////////////////////
 $stmt->execute();
 while ($row = $stmt->fetch()) {
     // print_r($row);
@@ -39,10 +36,12 @@ while ($row = $stmt->fetch()) {
 fclose($handle);
 echo "DONE!";
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/* @var $email*/
+require_once 'config.php';
+
 
 
 ?>
->>>>>>> 2b412d383a025feb439aa4e59e30f3a6413f32d8
 <!doctype html>
 
 <html>
@@ -53,8 +52,8 @@ echo "DONE!";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-    <link rel="stylesheet" href="myStyle.css">
-    <link rel="stylesheet" media="print" href="style_print.css">
+    <link rel="stylesheet" href="../client/Styles/myStyle.css">
+    <link rel="stylesheet" media="print" href="../client/Styles/style_print.css">
 
     <!--  <title>final</title>-->
 
@@ -67,13 +66,11 @@ echo "DONE!";
     <input type="submit" name="lang" value="sk" id="sk_flag"/>
 </form>
 
-<<<<<<< HEAD
-=======
-<form method="post" action="mailto:">
-
+<form method="post" action="mailto:<?php echo $email;?>">
+    <input type="file" src="export.csv">
+    <input type="submit" value="submit">
 </form>
 
->>>>>>> 2b412d383a025feb439aa4e59e30f3a6413f32d8
 
 <div id="game">
     <p><?=$_TXT[1]?></p>
