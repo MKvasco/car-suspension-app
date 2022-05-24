@@ -1,7 +1,11 @@
-# OS files
+<<<<<<< HEAD
+# DOT files
 .DS_Store
-
+.idea
+.gitignore
 
 
 # Database folder
-/db
+db
+=======
+>>>>>>> make-animation
