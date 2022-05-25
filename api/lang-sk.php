@@ -1,6 +1,6 @@
 <?php
 $_TXT = [
-    "NADPIS TODO",
+    "Tlmic Automobilu",
     "Domov",
     "Mail",
     "Pomoc",

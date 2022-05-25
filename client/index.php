@@ -4,7 +4,7 @@ if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "en"; }
 if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
 
 
-require "../api/lang-" . $_SESSION["lang"] . ".php";
+require "./api/lang-" . $_SESSION["lang"] . ".php";
 
 ?>
 <!DOCTYPE html>
@@ -24,10 +24,10 @@ require "../api/lang-" . $_SESSION["lang"] . ".php";
  <body lang="<?=$_SESSION["lang"]?>">
     <header>
       <form method="post" id="form_language">
-      <input type="submit" name="lang" value="EN" id="en_flag"/>
-      <input type="submit" name="lang" value="SK" id="sk_flag"/>
+      <input type="submit" name="lang" value="en" id="en_flag"/>
+      <input type="submit" name="lang" value="sk" id="sk_flag"/>
     </form>
-      <h1 id="myflag"><?php echo $actualText["header"];?></h1>
+      <h1 id="myflag"><?php echo $_TXT[0];?></h1>
     </header>
     <menu class="menu">
       <ul>
