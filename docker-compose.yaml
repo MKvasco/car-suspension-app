@@ -3,8 +3,8 @@ version: "3.9"
 services:
   db:
     platform: linux/x86_64
-    container_name: "database"
     image: mysql
+    container_name: "database"
     restart: "always"
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -16,10 +16,8 @@ services:
   web:
     build: .
     container_name: "website"
+    image: "car-suspension-simulation"
     ports:
       - 8080:80
-    volumes:
-      - ./api:/usr/src/api
-      - ./client:/var/www/html
     depends_on:
       - db
