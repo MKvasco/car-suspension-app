@@ -4,3 +4,9 @@
 #hra {
   display: inline;
 }
+#hra {
+  display: block;
+}
+#dont_print {
+  display: block;
+}

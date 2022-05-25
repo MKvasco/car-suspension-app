@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "en"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+
+require "../api/lang-" . $_SESSION["lang"] . ".php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,11 +17,17 @@
       @import "./Styles/basicStyle.css";
       @import "./Styles/animationStyle.css";
       @import "./Styles/formStyle.css";
+      @import "./Styles/myStyle.css";
+
     </style>
   </head>
-  <body>
+ <body lang="<?=$_SESSION["lang"]?>">
     <header>
-      <!-- <h1><?php// echo $actualText["header"];?></h1> -->
+      <form method="post" id="form_language">
+      <input type="submit" name="lang" value="EN" id="en_flag"/>
+      <input type="submit" name="lang" value="SK" id="sk_flag"/>
+    </form>
+      <h1 id="myflag"><?php echo $actualText["header"];?></h1>
     </header>
     <menu class="menu">
       <ul>
