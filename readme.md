@@ -7,3 +7,4 @@
 - Marco Kvasnica
 - Noemi Herbrik
 - Erik Frandofer
+- Andrej Kovacik

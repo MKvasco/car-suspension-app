@@ -67,11 +67,7 @@ if(isset($_GET['token'])){
             http_response_code(200);
             echo json_encode($data);
         }else if(isset($_GET['priklad'])){
-//            $dsa=urlencode("[0 2.3e6 5e8 0 8e6]);
-//            echo $dsa;
-//            echo "<br>";
             $priklad = $_GET['priklad'];
-
             $command = 'octave-cli --eval "       
             priklad ='.$priklad.';
             priklad

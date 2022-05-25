@@ -1,135 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Hind&display=swap");
 
-html, body {
-    height: 100%;
-    overflow: auto;
-    margin: 0;
+html,
+body {
+  height: 100%;
+  overflow: auto;
+  margin: 0;
 }
 
-
-body{
-
-    background-color: rgb(179, 187, 222);
-    background-position:left;
-    background-size: cover;
-    overflow:auto;
-    font-size: 12pt;
-    font-family: 'Hind', sans-serif;
+body {
+  background-color: rgb(179, 187, 222);
+  background-position: left;
+  background-size: cover;
+  overflow: auto;
+  font-size: 12pt;
+  font-family: "Hind", sans-serif;
 }
-.canvas-box{
-    margin-top:20px;
-    margin-right: auto;
-    margin-left:auto;
-    background-color: whitesmoke;
-    border:5px solid rgba(50, 58, 57, 0.9);
-    width:500px;
-    height:500px;
-
+.canvas-box {
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: whitesmoke;
+  border: 5px solid rgba(50, 58, 57, 0.9);
+  width: 500px;
+  height: 500px;
 }
-h1{
-    font-size: 40pt;
-    font-weight:lighter;
-    text-align: center;
-    margin: 0 1%;
+h1 {
+  font-size: 40pt;
+  font-weight: lighter;
+  text-align: center;
+  margin: 0 1%;
 }
 
-header{
-    background: rgb(32, 34, 45);
-    color: #f5f5f5;
+header {
+  background: rgb(32, 34, 45);
+  color: #f5f5f5;
 }
 
-h2{
-    color: whitesmoke;
-    margin: 0;
-    font-weight: lighter;
-    background-color: #20222f;
-    padding-left: 10px;
+h2 {
+  color: whitesmoke;
+  margin: 0;
+  font-weight: lighter;
+  background-color: #20222f;
+  padding-left: 10px;
 }
 
-aside{
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 20;
-    top: 0;
-    right: 0;
-    background-color: #464959;
-    overflow-x: hidden;
-    padding-top: 5px;
-    padding-left: 5px;
+aside {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  background-color: #464959;
+  overflow-x: hidden;
+  padding-top: 5px;
+  padding-left: 5px;
 }
 
-form{
-
-    margin: 10px auto auto;
-    padding-bottom: 10px;
-    background-color: rgba(0, 0, 0, 0);
-    width: 350px;
+form {
+  margin: 10px auto auto;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  width: 350px;
 }
 
-#carSuspension{
-    background-color: #2a2d3c;
-    display: inline-block;
-    width: 98%;
-    height: auto;
-    margin: auto 1%;
-
+#carSuspension {
+  background-color: #2a2d3c;
+  display: inline-block;
+  width: 98%;
+  height: auto;
+  margin: auto 1%;
 }
 
-#checkboxes{
-    background-color: #202230;
-    margin-left: auto;
-    margin-right: auto;
-    width: 98%;
-    border-bottom: 1px solid #b2badd;
+#checkboxes {
+  background-color: #202230;
+  margin-left: auto;
+  margin-right: auto;
+  width: 98%;
+  border-bottom: 1px solid #b2badd;
 }
 
-#animation{
-    width: 600px;
-    vertical-align: top;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-
+#animation {
+  width: 600px;
+  vertical-align: top;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.graph-box{
-    display: inline-block;
-    background-color: rgba(42, 45, 59, 0.76);
-    margin-right: auto;
-    margin-left: auto;
-    width: 800px;
-
+.graph-box {
+  display: inline-block;
+  background-color: rgba(42, 45, 59, 0.76);
+  margin-right: auto;
+  margin-left: auto;
+  width: 800px;
 }
-
 
 /* Aside style*/
 
-#otherUsers>button{
-    border:none;
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 12pt;
-    color: #828496;
+#otherUsers > button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 12pt;
+  color: #828496;
 }
-#otherUsers>button:hover{
- color:white;
+#otherUsers > button:hover {
+  color: white;
 }
-#otherUsers>ul{
-    list-style-type: none;
-        padding: 0;
+#otherUsers > ul {
+  list-style-type: none;
+  padding: 0;
+}
+#otherUsers > ul > li {
+  padding: 2px 2px 2px 0;
+  border-left: 2px solid rgba(125, 168, 239, 0.6);
+}
 
+#otherUsers > ul > li:hover {
+  background-color: #2a2d36;
+  border-left: 2px solid #80d85b;
 }
-#otherUsers>ul>li{
-    padding: 2px 2px 2px 0;
-    border-left: 2px solid rgba(125, 168, 239, 0.6);
-}
-
-#otherUsers>ul>li:hover{
-    background-color: #2a2d36;
-    border-left: 2px solid #80d85b;
-}
-#otherUsers>ul>li>a{
-    text-decoration: none;
-    color: #f3f3f4;
-    padding-left:10px;
+#otherUsers > ul > li > a {
+  text-decoration: none;
+  color: #f3f3f4;
+  padding-left: 10px;
 }
