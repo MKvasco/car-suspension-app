@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "en"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+
+require "../api/lang-" . $_SESSION["lang"] . ".php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +28,7 @@
     <link rel="stylesheet" href="Styles/myStyle.css">
 <!--    /*//////////////////////////////////*/-->
   </head>
-  <body>
+ <body> <!--  lang="<?=$_SESSION["lang"]?>"-->
 
 
     <header>
