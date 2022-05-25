@@ -17,26 +17,21 @@ require "../api/lang-" . $_SESSION["lang"] . ".php";
       @import "./Styles/basicStyle.css";
       @import "./Styles/animationStyle.css";
       @import "./Styles/formStyle.css";
+      @import "./Styles/myStyle.css";
 
     </style>
     <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
     <script src="Scripts/graphScript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
     <script src="./Scripts/script.js"></script>
-
-<!--    /*//////////////////////////////////*/-->
-    <link rel="stylesheet" href="Styles/myStyle.css">
-<!--    /*//////////////////////////////////*/-->
   </head>
- <body > <!--  lang="<?=$_SESSION["lang"]?>"-->
-
-
+ <body lang="<?=$_SESSION["lang"]?>">
     <header>
       <form method="post" id="form_language">
       <input type="submit" name="lang" value="EN" id="en_flag"/>
       <input type="submit" name="lang" value="SK" id="sk_flag"/>
     </form>
-      <h1 id="myflag">NADPIS TODO<?php// echo $actualText["header"];?></h1>
+      <h1 id="myflag"><?php echo $actualText["header"];?></h1>
     </header>
 
     <menu class="menu">
