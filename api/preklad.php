@@ -2,11 +2,11 @@
 
 //TODO use array values instead of fix values
 $enText= array(
-    "title" =>"CAS API",
+    "title" =>"Car Suspension",
     "header"=>"Final project"
 );
 $skText= array(
-    "title" =>"CAS API",
+    "title" =>"Tlmic Automobilu",
     "header"=>"Finálne zadanie"
 );
 
