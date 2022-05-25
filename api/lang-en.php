@@ -1,7 +1,19 @@
 <?php
 $_TXT = [
-    "Final task",
-    "hi",
-    "hey",
-    "print"
+    "Title TODO",
+    "Home",
+    "Mail",
+    "Help",
+    "Other users",
+    "User name",
+    "User1",
+    "User2",
+    "User3",
+    "Math example:",
+    "Write some text...",
+    "Value of r:",
+    "Output text",
+    "Animation",
+    "Graph",
+    "Play"
 ];
