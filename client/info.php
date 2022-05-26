@@ -125,7 +125,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
 
 </div>
 
-<button onclick="window.print()"><? echo $_TXT[29]?> </button>
+<button class="button" type="button" onclick="window.print()"><? echo $_TXT[29]?> </button>
 
 
 <script src="./Scripts/animation.js"></script>
