@@ -18,9 +18,9 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
         @import "./Styles/animationStyle.css";
         @import "./Styles/formStyle.css";
         @import "./Styles/myStyle.css";
-        @import "./Styles/style_print.css";
 
     </style>
+    <link rel="stylesheet" media="print" href="./Styles/style_print.css">
 </head>
 <body lang="<?=$_SESSION["lang"]?>">
 <div class="dont_print">
