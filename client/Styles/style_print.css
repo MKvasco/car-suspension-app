@@ -1,12 +1,3 @@
-#game {
-  display: none;
-}
-#hra {
-  display: inline;
-}
-#hra {
-  display: block;
-}
-#dont_print {
+.dont_print {
   display: block;
 }
