@@ -33,30 +33,30 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
       <ul>
         <li>
           <a href=""
-            ><img alt="homeIcon" width="18" src="./Images/menu.png" /> Home</a
+            ><img alt="homeIcon" width="18" src="./Images/menu.png" /> <?php echo $_TXT[1];?></a
           >
         </li>
         <li>
           <a href=""
-            ><img alt="mailIcon" width="18" src="./Images/email.png" /> Mail</a
+            ><img alt="mailIcon" width="18" src="./Images/email.png" /> <?php echo $_TXT[2];?></a
           >
         </li>
         <li>
           <a href=""
             ><img alt="infoIcon" width="18" src="./Images/information.png" />
-            Help</a
+              <?php echo $_TXT[3];?></a
           >
         </li>
         <li>
           <button type="button" onclick="setAsideVisible()">
-            <img alt="UsersIcon" width="22" src="./Images/users.png" /> Other
-            users
+            <img alt="UsersIcon" width="22" src="./Images/users.png" />
+              <?php echo $_TXT[4];?>
           </button>
         </li>
         <li class="userName">
           <button type="button" onclick="setInputUserNameVisible()">
             <img alt="loginIcon" width="18" src="./Images/user.png" />
-            User Name
+              <?php echo $_TXT[5];?>
           </button>
         </li>
       </ul>
@@ -68,9 +68,9 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
       </button>
       <br />
       <ul id="listOfUsers">
-        <li><a href="">User1</a></li>
-        <li><a href="">User2</a></li>
-        <li><a href="">User3</a></li>
+        <li><a href=""><?php echo $_TXT[6];?></a></li>
+        <li><a href=""><?php echo $_TXT[7];?></a></li>
+        <li><a href=""><?php echo $_TXT[8];?></a></li>
       </ul>
     </aside>
 
@@ -78,7 +78,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
       <input
         id="userNameInput"
         type="text"
-        placeholder="Enter Username"
+        placeholder="<?php echo $_TXT[9];?>"
         style="visibility: hidden"
       />
       <br />
@@ -86,7 +86,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
         id="exampleValue"
         cols="50"
         rows="5"
-        placeholder="Math example -> Write some text..."
+        placeholder="<?php echo $_TXT[10];?> -> <?php echo $_TXT[11];?>"
         onchange="makeDisable(id)"
       ></textarea>
       <br />
@@ -96,7 +96,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
         min="-1"
         max="1"
         step="0.01"
-        placeholder="Value of r -> 0.1"
+        placeholder="<?php echo $_TXT[12];?> -> 0.1"
         onchange="makeDisable(id)"
       />
       <br />
@@ -114,13 +114,13 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
         type="checkbox"
         checked
         onchange="showAnimation()"
-      /><label for="animCheckbox">Animation</label>
+      /><label for="animCheckbox"><?php echo $_TXT[13];?></label>
       <input
         id="graphCheckbox"
         type="checkbox"
         checked
         onchange="showGraph()"
-      /><label for="graphCheckbox">Graph</label>
+      /><label for="graphCheckbox"><?php echo $_TXT[14];?></label>
     </div>
 
     <div id="carSuspension" style="display: none">
@@ -132,7 +132,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
             id="playButton"
             onclick="playAnimation()"
           >
-            ▶<span>Play</span>
+            ▶<span><?php echo $_TXT[14];?></span>
           </button>
           <button
             type="button"
