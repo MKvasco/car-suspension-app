@@ -32,7 +32,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     <menu class="menu">
       <ul>
         <li>
-          <a href=""
+          <a href="#"
             ><img alt="homeIcon" width="18" src="./Images/menu.png" /> Home</a
           >
         </li>
@@ -42,7 +42,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
           >
         </li>
         <li>
-          <a href=""
+          <a href="info.php"
             ><img alt="infoIcon" width="18" src="./Images/information.png" />
             Help</a
           >
