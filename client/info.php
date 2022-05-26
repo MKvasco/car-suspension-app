@@ -64,9 +64,6 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     </button>
     <br />
     <ul id="listOfUsers">
-        <li><a href=""><?php echo $_TXT[6];?></a></li>
-        <li><a href=""><?php echo $_TXT[7];?></a></li>
-        <li><a href=""><?php echo $_TXT[8];?></a></li>
     </ul>
 </aside>
 </div>

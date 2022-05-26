@@ -11,9 +11,28 @@ if(isset($_GET['user']) || isset($_GET['value'])){
     $stmt->bindParam(':name', $user);
     $stmt->bindParam(':value', $value);
     $stmt->execute();
-    echo json_encode(["message"=>"success"]);
+    $user_id = $conn->lastInsertId();
+    echo json_encode(
+      ["message"=>"upload success",
+       "user_id"=>$user_id]
+      );
   }catch(Exception $e){
     echo json_encode($e->getMessage());
   }
 
+}
+
+if(isset($_GET['id'])){
+  $user_id = $_GET['id'];
+
+  try{
+    $stmt = $conn->prepare('DELETE FROM USERS_ACTIVE WHERE id=:id');
+    $stmt->bindParam(':id', $user_id);
+    $stmt->execute();
+    echo json_encode(
+      ["message"=>"delete success"]
+      );
+  }catch(Exception $e){
+    echo json_encode($e->getMessage());
+  } 
 }

@@ -14,13 +14,11 @@ let stopped = false;
 let actualTime = 0;
 var ctx;
 
-let currentUsers = [];
+let currentUser = null;
 
 const userName = document.querySelector("#userNameInput");
-const userButton = document.querySelector("#userInputButton");
+const formHandler = document.querySelector("#formHandler");
 let flag = true;
-
-window.onbeforeunload = () => {};
 
 window.onload = function () {
   fetchUsers();
@@ -93,23 +91,32 @@ const submitForm = async () => {
   let exampleValue = document.getElementById("exampleValue").value;
   let rValue = document.getElementById("rValue").value;
 
-  if (userName.value !== "" && rValue !== null) {
+  if (exampleValue === "" && rValue !== "") {
+    formHandler.style.display = "none";
+  }
+
+  if (userName.value !== "" && rValue !== "") {
     const response = await fetch(
       `/api/data_upload.php?user=${userName.value}&value=${rValue}`
     );
     const result = await response.json();
-    console.log(result);
-    userName.style.visibility = "hidden";
+    currentUser = result.user_id;
+  }
+
+  if (currentUser != null) {
+    document.body.onbeforeunload = async () => {
+      await fetch(`/api/data_upload.php?id=${currentUser}`);
+      currentUser = null;
+    };
   }
 
   document.getElementById("outputBox").style.display = "none";
   document.getElementById("checkboxes").style.display = "none";
   document.getElementById("carSuspension").style.display = "none";
-  example = false;
   carAnim = false;
 
-  if (exampleValue !== "") example = true;
-  if (example) {
+  if (exampleValue !== "") {
+    userName.style.visbility = "hidden";
     exampleValue = encodeURIComponent(exampleValue);
     const response = await fetch(
       `/api/cas_api.php?token=WebteToken&priklad=${exampleValue}`
@@ -221,9 +228,11 @@ const fetchUsers = async () => {
         carAnim = !carAnim;
         await getDataFromOctave(user.value_r);
       });
-      a.text = user.username;
-      li.append(a);
-      usersList.appendChild(li);
+      if (user.id != currentUser) {
+        a.text = user.username;
+        li.append(a);
+        usersList.appendChild(li);
+      }
     });
   };
   fetchData();
