@@ -9,11 +9,12 @@ $_TXT = [
     "User1",
     "User2",
     "User3",
-    "Math example:",
+    "Enter Username",
+    "Math example",
     "Write some text...",
-    "Value of r:",
+    "Value of r",
     "Output text",
-    "Animation",
+    "Animation",//13
     "Graph",
     "Play"
 ];
