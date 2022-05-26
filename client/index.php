@@ -103,7 +103,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     ></textarea>
     <br />
     <button class="button" type="button" onclick="submitForm()"
-    style="width:90%;padding: .5rem;font-size: 18px;">Submit</button>
+    style="width:105%;padding: .5rem;margin-left: .6rem;font-size: 18px;">Submit</button>
     <br />
     <div class="output-box" id="outputBox" style="display: none">
       <output id="result">Output text</output>
