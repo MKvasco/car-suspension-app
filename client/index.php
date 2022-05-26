@@ -74,7 +74,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
       </ul>
     </aside>
 
-  <form>
+  <form style="margin-top: 2rem">
     <input
     id="userNameInput"
     type="text"
@@ -103,7 +103,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     ></textarea>
     <br />
     <button class="button" type="button" onclick="submitForm()"
-    style="width:105%;margin-left: 0.65rem;padding: .5rem;font-size: 18px;">Submit</button>
+    style="width:90%;padding: .5rem;font-size: 18px;">Submit</button>
     <br />
     <div class="output-box" id="outputBox" style="display: none">
       <output id="result">Output text</output>
