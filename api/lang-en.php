@@ -29,5 +29,5 @@ $_TXT = [
     "Information about API and website.",
     "Sending logs on mail.",
     "Control",
-    "Print"
+    "PDF"
 ];
