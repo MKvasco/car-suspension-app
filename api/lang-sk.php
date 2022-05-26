@@ -29,5 +29,5 @@ $_TXT = [
     "Informácie o webovej stránke a API.",
     "Zaslanie logov na mail.",
     "Ovládanie",
-    "Tlačiť"
+    "PDF"
 ];
