@@ -114,7 +114,14 @@ const submitForm = async () => {
   carAnim = false;
 
   if (exampleValue !== "") example = true;
-  else if (rValue !== "") {
+  if (example) {
+    exampleValue = encodeURIComponent(exampleValue);
+    const response = await fetch(
+      `/api/cas_api.php?token=WebteToken&priklad=${exampleValue}`
+    );
+    const result = await response.json();
+    setValue(document.getElementById("exampleValue"), result.result);
+  } else if (rValue !== "") {
     carAnim = true;
     //readJSON();
   }
@@ -130,6 +137,11 @@ const submitForm = async () => {
     //call getDataFromOctave
     getDataFromOctave(rValue);
   }
+};
+const setValue = (component, result) => {
+  setTimeout(() => {
+    component.value = result;
+  }, 2);
 };
 
 const getDataFromOctave = async (rValue) => {

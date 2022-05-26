@@ -34,7 +34,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
 <menu class="menu">
     <ul>
         <li>
-            <a href=""
+            <a href="index.php"
             ><img alt="homeIcon" width="18" src="./Images/menu.png" /> <?php echo $_TXT[1];?></a
             >
         </li>
@@ -53,12 +53,6 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
             <button type="button" onclick="setAsideVisible()">
                 <img alt="UsersIcon" width="22" src="./Images/users.png" />
                 <?php echo $_TXT[4];?>
-            </button>
-        </li>
-        <li class="userName">
-            <button type="button" onclick="setInputUserNameVisible()">
-                <img alt="loginIcon" width="18" src="./Images/user.png" />
-                <?php echo $_TXT[5];?>
             </button>
         </li>
     </ul>
