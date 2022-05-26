@@ -124,6 +124,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
 <script src="./Scripts/animation.js"></script>
 <script src="./Scripts/graph.js"></script>
 <script src="./Scripts/index.js"></script>
+<script src="./Scripts/print.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
 <script
@@ -132,10 +133,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
 ></script>
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf.min.js"></script>
-<script src="Scripts/print.js"></script>
 </body>
 </html>
