@@ -14,7 +14,7 @@
   height: 18px;
   width: 27px;
   color: rgba(0, 0, 0, 0);
-  margin-left: 0px;
+  margin-left: -2px;
 }
 #sk_flag:hover,
 #en_flag:hover {
@@ -29,4 +29,8 @@
   margin-top: -45px;
   margin-bottom: -35px;
   margin-right: -18px;
+}
+
+button #cmd.button {
+  margin-left: 0 !important;
 }
