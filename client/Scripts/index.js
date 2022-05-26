@@ -14,11 +14,16 @@ let stopped = false;
 let actualTime = 0;
 var ctx;
 
+let currentUsers = [];
+
 const userName = document.querySelector("#userNameInput");
 const userButton = document.querySelector("#userInputButton");
 let flag = true;
 
+window.onbeforeunload = () => {};
+
 window.onload = function () {
+  fetchUsers();
   //readJSON();
   canvas = document.getElementById("roadCanvas");
   ctx = canvas.getContext("2d");
@@ -42,16 +47,6 @@ window.onresize = function () {
 
 function setAsideVisible() {
   document.getElementById("otherUsers").style.display = "block";
-}
-
-function setInputUserNameVisible() {
-  if (flag) {
-    document.getElementById("userNameInput").style.visibility = "visible";
-    flag = !flag;
-  } else {
-    document.getElementById("userNameInput").style.visibility = "hidden";
-    flag = !flag;
-  }
 }
 
 function setAsideInvisible() {
@@ -213,3 +208,27 @@ function makeDisable(inputId) {
     else document.getElementById("rValue").disabled = false;
   }
 }
+
+const fetchUsers = async () => {
+  const usersList = document.querySelector("#listOfUsers");
+  const fetchData = async () => {
+    const response = await fetch("/api/get_users.php");
+    const result = await response.json();
+    result.forEach((user) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.addEventListener("click", async () => {
+        carAnim = !carAnim;
+        await getDataFromOctave(user.value_r);
+      });
+      a.text = user.username;
+      li.append(a);
+      usersList.appendChild(li);
+    });
+  };
+  fetchData();
+  setInterval(async () => {
+    usersList.innerHTML = "";
+    fetchData();
+  }, 5000);
+};
