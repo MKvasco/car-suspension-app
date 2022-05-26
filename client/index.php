@@ -6,6 +6,9 @@ if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
 
 require "./api/lang-" . $_SESSION["lang"] . ".php";
 
+/* @var $email*/
+require_once './api/config.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,9 +40,15 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
           >
         </li>
         <li>
-          <a href=""
-            ><img alt="mailIcon" width="18" src="./Images/email.png" /> <?php echo $_TXT[2];?></a
-          >
+            <button type="button" onclick="sendMail()">
+                <img alt="mailIcon" width="18" src="./Images/email.png" />
+                <?php echo $_TXT[2];?>
+            </button>
+
+
+<!--          <a class="mailto" href="mailto:--><!--"-->
+<!--            ><img alt="mailIcon" width="18" src="./Images/email.png" /> --><?php //echo $_TXT[2];?><!--</a-->
+<!--          >-->
         </li>
         <li>
           <a href="info.php"
