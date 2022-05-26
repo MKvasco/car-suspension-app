@@ -32,8 +32,13 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     <menu class="menu">
       <ul>
         <li>
+<<<<<<< HEAD
           <a href=""
             ><img alt="homeIcon" width="18" src="./Images/menu.png" /> <?php echo $_TXT[1];?></a
+=======
+          <a href="#"
+            ><img alt="homeIcon" width="18" src="./Images/menu.png" /> Home</a
+>>>>>>> make-cas-api
           >
         </li>
         <li>
@@ -42,7 +47,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
           >
         </li>
         <li>
-          <a href=""
+          <a href="info.php"
             ><img alt="infoIcon" width="18" src="./Images/information.png" />
               <?php echo $_TXT[3];?></a
           >
