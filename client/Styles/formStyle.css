@@ -162,3 +162,7 @@ input[type="checkbox"]:checked + label:before {
 label {
   width: 8em;
 }
+
+a:hover {
+  cursor: pointer;
+}
