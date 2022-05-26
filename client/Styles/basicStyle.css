@@ -69,13 +69,14 @@ form {
   display: inline-block;
   width: 98%;
   height: auto;
-  margin: auto 1%;
+  margin: 0 auto;
 }
 
 #checkboxes {
   background-color: #202230;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1rem;
   width: 98%;
   border-bottom: 1px solid #b2badd;
 }
