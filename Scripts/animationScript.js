@@ -1,8 +1,7 @@
-
-animationBoxWidht=document.getElementById('animation').computedStyleMap().get('width').value;
-wheelSize = document.getElementById('wheel').width;
-wheelX = document.getElementById('wheelBox').computedStyleMap().get('left').value
-wheelY = document.getElementById('wheelBox').computedStyleMap().get('top').value
+wheelSize = document.getElementById('wheel').width; // or just 100
+animationBoxWidht=400;
+wheelX = 225;
+wheelY = 170;
 var roadPartSize= Math.round(wheelSize/3) ;
 var pixelRation=50;
 var actualRoadPartX=wheelX+roadPartSize+1;
@@ -16,7 +15,6 @@ function drawRoad(i){
     ctx.lineWidth=5;
     ctx.strokeStyle='#dbdbdc';
     ctx.beginPath();
-
 
     //draw first part of road
     let startX = actualRoadPartX;
@@ -48,12 +46,16 @@ function drawRoad(i){
         if(i+y<t.length){
             heightDifference=x1[i+y]*(-pixelRation);
         }
-        else heightDifference=0;
+        else heightDifference=x1[t.length-1]*(-pixelRation);
+
         ctx.moveTo(startX, startY+heightDifference);
-        if(i+y+1<t.length){
-            heightDifference=x1[i+y+1]*(-pixelRation)
+
+        if(i+y+1<t.length-1){
+            heightDifference=x1[i+y+1]*(-pixelRation);
         }
-        else heightDifference=0;
+        else
+            heightDifference=x1[t.length-1]*(-pixelRation);
+
         ctx.lineTo(startX+roadPartSize,startY+heightDifference);
         startX+=roadPartSize;
     }
@@ -82,7 +84,6 @@ function myLoop(i) {
 
             wheelRotation+=15;
             wheelPosition= x1[i]*(-pixelRation)-x3[i]*(-pixelRation)*10;
-           // wheelPosition=  x1[i]*(-pixelRation)+x3[i]*(-pixelRation*10);
 
             //round values
             carPosition=Math.round(carPosition);
@@ -91,40 +92,52 @@ function myLoop(i) {
             m1Position=Math.ceil(x1[i]*(-pixelRation));
             m2Position=Math.ceil(x3[i]*(-pixelRation));
 
+            //animate car
+            if(i>0 && carPosition !== x1[i-1]*(-pixelRation) ){
+                anime({
+                    targets:document.getElementById('carBox'),
+                    translateY:carPosition
+                });
+            }
 
-            anime({
-                targets:document.getElementById('carBox'),
-                translateY:carPosition
-            });
+            //rotate wheel
             anime({
                 targets:document.getElementById('wheel'),
                 rotate:wheelRotation.toString()+'deg',
+            });
+            //animate wheel
+            if(i>0 && wheelPosition !== x1[i-1]*(-pixelRation)-x3[i-1]*(-pixelRation)*10 ){
+                anime({
+                    targets:document.getElementById('wheelBox'),
+                    translateY:wheelPosition
+                });
+            }
 
-            });
-            anime({
-                targets:document.getElementById('wheelBox'),
-                translateY:wheelPosition
-            });
+            //animate M1
+            if(i>0 && m1Position !== Math.ceil(x1[i-1]*(-pixelRation)) ){
+                anime({
+                    targets:document.getElementById('M1'),
+                    translateY:m1Position
+                });
+                anime({
+                    targets:document.getElementById('springImage1'),
+                    translateY:m1Position,
+                    height: 100-m1Position
+                })
+            }
 
-            anime({
-                targets:document.getElementById('M1'),
-                translateY:m1Position
-            });
-            anime({
-                targets:document.getElementById('M2'),
-                translateY:m2Position
-            });
-            anime({
-                targets:document.getElementById('springImage1'),
-                translateY:m1Position,
-                height: 100-m1Position
-            })
-
-            anime({
-                targets:document.getElementById('springImage2'),
-                translateY:m2Position,
-                height: 100-m2Position
-            })
+            //animate M2
+            if(i>0 && m2Position !== Math.ceil(x3[i-1]*(-pixelRation)) ){
+                anime({
+                    targets:document.getElementById('M2'),
+                    translateY:m2Position
+                });
+                anime({
+                    targets:document.getElementById('springImage2'),
+                    translateY:m2Position,
+                    height: 100-m2Position
+                })
+            }
 
             drawRoad(i);
 
@@ -132,7 +145,7 @@ function myLoop(i) {
             setMarkers(i);
             drawGraph();
 
-            if (++i <t.length-1) myLoop(i);//  increment i and call myLoop again if i > 0
+            if (++i <t.length-1) myLoop(i);//  increment i and call myLoop again
             else {
                 actualTime=0;
                 document.getElementById('playButton').disabled=false;
@@ -140,5 +153,3 @@ function myLoop(i) {
         },
         2)
 }
-
-
