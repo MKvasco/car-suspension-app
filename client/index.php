@@ -44,11 +44,6 @@ require_once './api/config.php';
                 <img alt="mailIcon" width="18" src="./Images/email.png" />
                 <?php echo $_TXT[2];?>
             </button>
-
-
-<!--          <a class="mailto" href="mailto:--><!--"-->
-<!--            ><img alt="mailIcon" width="18" src="./Images/email.png" /> --><?php //echo $_TXT[2];?><!--</a-->
-<!--          >-->
         </li>
         <li>
           <a href="info.php"
