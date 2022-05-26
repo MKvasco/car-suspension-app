@@ -11,6 +11,7 @@ if(isset($_GET['user']) || isset($_GET['value'])){
     $stmt->bindParam(':name', $user);
     $stmt->bindParam(':value', $value);
     $stmt->execute();
+    echo json_encode(["message"=>"success"]);
   }catch(Exception $e){
     echo json_encode($e->getMessage());
   }

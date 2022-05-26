@@ -53,12 +53,6 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
               <?php echo $_TXT[4];?>
           </button>
         </li>
-        <li class="userName">
-          <button type="button" onclick="setInputUserNameVisible()">
-            <img alt="loginIcon" width="18" src="./Images/user.png" />
-              <?php echo $_TXT[5];?>
-          </button>
-        </li>
       </ul>
     </menu>
 
@@ -68,18 +62,15 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
       </button>
       <br />
       <ul id="listOfUsers">
-        <li><a href=""><?php echo $_TXT[6];?></a></li>
-        <li><a href=""><?php echo $_TXT[7];?></a></li>
-        <li><a href=""><?php echo $_TXT[8];?></a></li>
       </ul>
     </aside>
 
-  <form style="margin-top: 2rem">
+  <form id="formHandler" style="margin-top: 2rem">
     <input
     id="userNameInput"
     type="text"
     placeholder="<?php echo $_TXT[9];?>"
-    style="visibility: hidden; width: 100%; padding: 0.5rem;"
+    style="width: 100%; padding: 0.5rem;"
     />
     <br />
     <input
