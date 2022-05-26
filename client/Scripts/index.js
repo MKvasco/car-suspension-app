@@ -227,6 +227,9 @@ const fetchUsers = async () => {
       a.addEventListener("click", async () => {
         carAnim = !carAnim;
         await getDataFromOctave(user.value_r);
+        document.getElementById(
+          "animationTitle"
+        ).innerText = `${user.username} -> R : ${user.value_r}`;
       });
       if (user.id != currentUser) {
         a.text = user.username;
