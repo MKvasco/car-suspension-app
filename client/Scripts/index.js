@@ -45,6 +45,13 @@ window.onresize = function () {
   graphResize();
 };
 
+const sendMail = async () => {
+  const response = await fetch(
+      `/api/export_CSV.php`
+  );
+}
+
+
 function setAsideVisible() {
   document.getElementById("otherUsers").style.display = "block";
 }

@@ -1,5 +1,5 @@
 <?php
-$email = '';
+$email = 'xfrandofer@stuba.sk';
 $host = "db";
 $port = "3306";
 $db = "mysql_db";
