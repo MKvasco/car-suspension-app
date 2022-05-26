@@ -113,7 +113,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
             <b style="color: whitesmoke;"><img alt="mailIcon" width="18" src="./Images/email.png" /> Mail</b>
             Zaslanie logov na mail.
         </p>
-        <h3>4.	Ovládanie</h3>
+        <h3>5.	Ovládanie</h3>
         <p>
             <img alt="mailIcon"  src="./Images/Info.png" />
 
