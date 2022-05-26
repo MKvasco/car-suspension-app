@@ -74,39 +74,39 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
       </ul>
     </aside>
 
-    <form>
-      <input
-        id="userNameInput"
-        type="text"
-        placeholder="<?php echo $_TXT[9];?>"
-        style="visibility: hidden"
-      />
-      <br />
-      <textarea
-        id="exampleValue"
-        cols="50"
-        rows="5"
-        placeholder="<?php echo $_TXT[10];?> -> <?php echo $_TXT[11];?>"
-        onchange="makeDisable(id)"
-      ></textarea>
-      <br />
-      <input
-        id="rValue"
-        type="number"
-        min="-1"
-        max="1"
-        step="0.01"
-        placeholder="<?php echo $_TXT[12];?> -> 0.1"
-        onchange="makeDisable(id)"
-      />
-      <br />
-      <button class="button" type="button" onclick="submitForm()">OK</button>
-      <br />
-      <div class="output-box" id="outputBox" style="display: none">
-        <output id="result">Output text</output>
-      </div>
-    </form>
-
+  <form>
+    <input
+    id="userNameInput"
+    type="text"
+    placeholder="<?php echo $_TXT[9];?>"
+    style="visibility: hidden"
+    />
+    <br />
+    <input
+    id="rValue"
+    type="number"
+    min="-1"
+    max="1"
+    step="0.01"
+    placeholder="<?php echo $_TXT[12];?> -> 0.1"
+    onchange="makeDisable(id)"
+    />
+    <br />
+    <textarea
+    id="exampleValue"
+    cols="50"
+    rows="5"
+    placeholder="<?php echo $_TXT[10];?> -> <?php echo $_TXT[11];?>"
+    onchange="makeDisable(id)"
+    ></textarea>
+    <br />
+    <button class="button" type="button" onclick="submitForm()">OK</button>
+    <br />
+    <div class="output-box" id="outputBox" style="display: none">
+      <output id="result">Output text</output>
+    </div>
+  </form>
+  
     <div id="checkboxes" style="display: none">
       <h2 id="animationTitle"></h2>
       <input
