@@ -79,7 +79,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     id="userNameInput"
     type="text"
     placeholder="<?php echo $_TXT[9];?>"
-    style="visibility: hidden"
+    style="visibility: hidden; width: 100%; padding: 0.5rem;"
     />
     <br />
     <input
@@ -90,6 +90,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     step="0.01"
     placeholder="<?php echo $_TXT[12];?> -> 0.1"
     onchange="makeDisable(id)"
+    style="width: 100%;padding: 0.5rem;"
     />
     <br />
     <textarea
@@ -98,9 +99,11 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     rows="5"
     placeholder="<?php echo $_TXT[10];?> -> <?php echo $_TXT[11];?>"
     onchange="makeDisable(id)"
+    style="width: 102%;font-size: 16px;border: none;"
     ></textarea>
     <br />
-    <button class="button" type="button" onclick="submitForm()">OK</button>
+    <button class="button" type="button" onclick="submitForm()"
+    style="width:105%;margin-left: 0.65rem;padding: .5rem;font-size: 18px;">Submit</button>
     <br />
     <div class="output-box" id="outputBox" style="display: none">
       <output id="result">Output text</output>
