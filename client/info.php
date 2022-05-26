@@ -22,7 +22,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     </style>
     <link rel="stylesheet" media="print" href="./Styles/style_print.css">
 </head>
-<body lang="<?=$_SESSION["lang"]?>">
+<body id="target" lang="<?=$_SESSION["lang"]?>">
 <div class="dont_print">
 <header>
     <form method="post" id="form_language">
@@ -72,7 +72,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
 </div>
 
 <h2 style=" background-color: #313551"><?php echo $_TXT[17];?></h2>
-<div class="container" style="display: flex;align-items: flex-start;flex-direction: column;font-size: 20px;margin-left: 10%;width: 80%" >
+<div id="content" class="container" style="display: flex;align-items: flex-start;flex-direction: column;font-size: 20px;margin-left: 10%;width: 80%" >
 
     <div class="info-api" style="margin-top: 50px;width: 100%">
         <h2 style="background-color: #b3bbde;color: black;font-weight:bolder;padding-left: 0; border-bottom: 2px solid black;">API</h2>
@@ -119,7 +119,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
 
 </div>
 
-<button class="button" type="button" style="width:105%;padding: .5rem;margin-left: .6rem;font-size: 18px;" onclick="window.print()">
+<button id="cmd" class="button" type="button" style="width:105%;padding: .5rem;margin-left: .6rem;font-size: 18px;" onclick="window.print()">
     <? echo $_TXT[29]?>
 </button>
 
@@ -135,5 +135,10 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
 ></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf.min.js"></script>
+<script src="Scripts/print.js"></script>
 </body>
 </html>
