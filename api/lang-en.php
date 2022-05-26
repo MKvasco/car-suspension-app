@@ -16,5 +16,18 @@ $_TXT = [
     "Output text",
     "Animation",//13
     "Graph",
-    "Play"
+    "Play",////////////////////////////////////////
+    "Information about API and website ",//17
+    "1.	Get json values for animation",
+    "cas_api.php?token=WebteToken&r=0.2",
+    "2.	Getting json for the result of the example",//20
+    "cas_api.php?token=WebteToken&priklad=1+1",
+    "Webside",
+    "1.	Enter a name",
+    "Entering a user name will allow other users to monitor their simulation.",
+    "Entering a user name will allow other users to monitor their simulation.",
+    "Information about API and website.",
+    "Sending logs on mail.",
+    "Control",
+    "Print"
 ];
