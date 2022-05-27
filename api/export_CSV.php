@@ -33,8 +33,11 @@ try {
     $mail->isSMTP();
     $mail->Host = 'mail.stuba.sk';
     $mail->SMTPAuth = true;
-    $mail->Username = 'xfrandofer';
-    $mail->Password = 'weC.owy.5.isi';
+
+    //////////////////////////////////
+    $mail->Username = 'AIS LOGIN';
+    $mail->Password = 'AIS PASSWORD';
+    ///////////////////////////////////
     $mail->SMTPSecure = 'tls';
     $mail->Port = 25;
 
