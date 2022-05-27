@@ -59,9 +59,9 @@ try {
 //Content
     $mail->isHTML (true);
 // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->Subject = '이 프로그래밍 언어는 포도 거름입니다';
+    $mail->Body = 'Odiamos php y esperamos no volver a verlo nunca más, supongo que no descifraste nuestro mensaje. <b>Desperdicio!</b>';
+    $mail->AltBody = 'Ewe sithetha ngokunzulu, ungasinika okungenani, kodwa ngenxa kaThixo inkunkuma ephelelwe lixesha php';
 
 
     $mail->send();
