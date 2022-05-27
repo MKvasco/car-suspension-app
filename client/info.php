@@ -18,6 +18,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
         @import "./Styles/animationStyle.css";
         @import "./Styles/formStyle.css";
         @import "./Styles/myStyle.css";
+        @import "./Styles/style_print.css";
 
     </style>
     <link rel="stylesheet" media="print" href="./Styles/style_print.css">
@@ -108,8 +109,8 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
             <b style="color: whitesmoke;"><img alt="mailIcon" width="18" src="./Images/email.png" /><?php echo $_TXT[2];?></b>
             <?php echo $_TXT[27];?>
         </p>
-        <h3>5.	<?php echo $_TXT[28];?></h3>
-        <p>
+        <h3 class="ignorovat">5.	<?php echo $_TXT[28];?></h3>
+        <p class="ignorovat">
             <img alt="mailIcon"  src="./Images/Info.png" />
 
     </div>
@@ -128,11 +129,13 @@ crossorigin="anonymous"
 referrerpolicy="no-referrer"
 >
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
-integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA=="
-crossorigin="anonymous"
-referrerpolicy="no-referrer">
+<script>
+    function generatePDF(){
+        window.print()
+    }
+
 </script>
-<script src="./Scripts/print.js"></script>
+
+
 </body>
 </html>
