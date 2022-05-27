@@ -36,3 +36,18 @@ if(isset($_GET['id'])){
     echo json_encode($e->getMessage());
   } 
 }
+
+if(isset($_GET['command'])){
+  $command = $_GET['command'];
+
+  try{
+    $stmt = $conn->prepare('INSERT INTO SYSTEM_LOGS (command) VALUES (:command)');
+    $stmt->bindParam(':command', $command);
+    $stmt->execute();
+    echo json_encode(
+      ["message"=>"data logs upload success"]
+      );
+  }catch(Exception $e){
+    echo json_encode($e->getMessage());
+  } 
+}

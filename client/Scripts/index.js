@@ -42,7 +42,8 @@ window.onresize = function () {
 };
 
 const sendMail = async () => {
-  const response = await fetch(`/api/export_CSV.php?`);
+  await fetch("/api/export_CSV.php");
+  alert("Message has been sent!");
 };
 
 function setAsideVisible() {
@@ -82,7 +83,6 @@ function readJSON() {
       drawGraph();
       document.getElementById("animationTitle").innerText =
         "Car suspension model r = " + x1[x1.length - 1];
-
       document.getElementById("checkboxes").style.display = "block";
       document.getElementById("carSuspension").style.display = "block";
       actualTime = 0;
@@ -92,6 +92,12 @@ function readJSON() {
 const submitForm = async () => {
   let exampleValue = document.getElementById("exampleValue").value;
   let rValue = document.getElementById("rValue").value;
+
+  const response = await fetch(
+    `/api/data_upload.php?command=${rValue === "" ? exampleValue : rValue}`
+  );
+  const result = await response.json();
+  console.log(result);
 
   if (exampleValue === "" && rValue !== "") {
     formHandler.style.display = "none";
@@ -227,11 +233,12 @@ const fetchUsers = async () => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.addEventListener("click", async () => {
+        formHandler.style.display = "none";
         carAnim = !carAnim;
         await getDataFromOctave(user.value_r);
         document.getElementById(
           "animationTitle"
-        ).innerText = `${user.username} -> R : ${user.value_r}`;
+        ).innerText = `${user.username} -> r : ${user.value_r}`;
       });
       if (user.id != currentUser) {
         a.text = user.username;

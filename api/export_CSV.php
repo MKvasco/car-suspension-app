@@ -1,16 +1,20 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
+// header('Content-Type: application/json; charset=utf-8');
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
 require_once "config.php";
 
-$sql = "SELECT FROM SYSTEM_LOGS";
+
+$sql = "SELECT * FROM SYSTEM_LOGS";
 $statement = $conn->prepare($sql);
 $statement->execute();
-$rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+$rows = $statement->fetchAll();
 $columnNames = array();
 if(!empty($rows)){
     $firstRow = $rows[0];
@@ -22,7 +26,7 @@ if(!empty($rows)){
 $fileName = 'export.csv';
 header('Content-Type: application/excel');
 header('Content-Disposition: attachment; filename="' . $fileName . '"');
-$fp = fopen('php://output', 'w');
+$fp = fopen('export.csv', 'a+');
 fputcsv($fp, $columnNames);
 foreach ($rows as $row) {
     fputcsv($fp, $row);
@@ -61,7 +65,7 @@ try {
 
 
     $mail->send();
-    echo 'Message has been sent';
+    echo json_encode('Message has been sent');
 } catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+    echo json_encode("Message could not be sent. Mailer Error: $mail->ErrorInfo");
 }

@@ -118,7 +118,7 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
 
 </div>
 
-<button id="cmd" class="button" type="button" style="width:105%;padding: .5rem;margin-left: .6rem;font-size: 18px;" onclick="window.print()">
+<button id="cmd" class="button" type="button" style="width:100%;padding: .5rem;margin-left: .6rem;font-size: 18px;" onclick="window.print()">
     <? echo $_TXT[29]?>
 </button>
 
