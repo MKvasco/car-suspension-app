@@ -1,20 +1,27 @@
 <?php
-/* @var $conn*/
 require_once "config.php";
 
-header('Content-Type: text/csv; charset=utf-8');
-header('Content-Disposition: attachment; filename=export.csv');
-$output = fopen("php://output", "w");
-fputcsv($output, array('id', 'command'));
-$query = "SELECT * FROM system_logs ORDER BY id DESC";
-$result = mysqli_query($conn, $query);
-while ($row = mysqli_fetch_assoc($result)){
-    fputcsv($output, $row);
+$sql = "SELECT FROM SYSTEM_LOGS";
+$statement = $conn->prepare($sql);
+$statement->execute();
+$rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+$columnNames = array();
+if(!empty($rows)){
+    $firstRow = $rows[0];
+    foreach($firstRow as $colName => $val){
+        $columnNames[] = $colName;
+    }
 }
-fclose($output);
 
-
-
+$fileName = 'export.csv';
+header('Content-Type: application/excel');
+header('Content-Disposition: attachment; filename="' . $fileName . '"');
+$fp = fopen('php://output', 'w');
+fputcsv($fp, $columnNames);
+foreach ($rows as $row) {
+    fputcsv($fp, $row);
+}
+fclose($fp);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -32,17 +39,16 @@ try {
     $mail->SMTPAuth = true;
 
     //////////////////////////////////
-    $mail->Username = 'AIS LOGIN';
-    $mail->Password = 'AIS PASSWORD';
+    $mail->Username = '***REMOVED***';
+    $mail->Password = '***REMOVED***';
     ///////////////////////////////////
     $mail->SMTPSecure = 'tls';
     $mail->Port = 25;
 
-    $mail->setFrom('xfrandofer@stuba.sk','webte2');
-    $mail->addAddress('xfrandofer@stuba.sk','erik');
+    $mail->setFrom('***REMOVED***','webte2');
+    $mail->addAddress($email,'Dream team');
 
 
-//$mail->addAttachment ('mickey.jpg', 'mys.jpg'); // Optional name
     $file_to_attach = 'export.csv';
 
     $mail->AddAttachment( $file_to_attach , 'export.csv' );
@@ -60,4 +66,3 @@ try {
 } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 }
-?>
