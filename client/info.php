@@ -40,9 +40,10 @@ require "./api/lang-" . $_SESSION["lang"] . ".php";
             >
         </li>
         <li>
-            <a href=""
-            ><img alt="mailIcon" width="18" src="./Images/email.png" /> <?php echo $_TXT[2];?></a
-            >
+            <button type="button" onclick="sendMail()">
+                <img alt="mailIcon" width="18" src="./Images/email.png" />
+                <?php echo $_TXT[2];?>
+            </button>
         </li>
         <li>
             <a href=""

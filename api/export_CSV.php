@@ -1,23 +1,20 @@
 <?php
-//header('Content-Type: application/json; charset=utf-8');
-//
-//
-//// (B) CREATE EMPTY CSV FILE ON SERVER
-//$csvFile = "export.csv";
-//$handle = fopen($csvFile, "w");
-//if ($handle === false) {
-//    exit("Error creating $csvFile");
-//}
-//
-//echo 'tu som';
-//
-//// (C) GET USERS FROM DATABASE + WRITE TO FILE
-//$test=[["id"=>"1","command"=>"1+1"],["id"=>"2","command"=>"2+2"]];
-//while ($row = $test) {
-//    // print_r($row);
-//    fputcsv($handle, [$row["id"], $row["command"]]);
-//}
-//fclose($handle);
+/* @var $conn*/
+require_once "config.php";
+
+header('Content-Type: text/csv; charset=utf-8');
+header('Content-Disposition: attachment; filename=export.csv');
+$output = fopen("php://output", "w");
+fputcsv($output, array('id', 'command'));
+$query = "SELECT * FROM system_logs ORDER BY id DESC";
+$result = mysqli_query($conn, $query);
+while ($row = mysqli_fetch_assoc($result)){
+    fputcsv($output, $row);
+}
+fclose($output);
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
