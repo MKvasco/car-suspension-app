@@ -1,62 +1,63 @@
 <?php
-/* @var $email*/
-/* @var $conn*/
-require_once "config.php";
+//header('Content-Type: application/json; charset=utf-8');
+//
+//
+//// (B) CREATE EMPTY CSV FILE ON SERVER
+//$csvFile = "export.csv";
+//$handle = fopen($csvFile, "w");
+//if ($handle === false) {
+//    exit("Error creating $csvFile");
+//}
+//
+//echo 'tu som';
+//
+//// (C) GET USERS FROM DATABASE + WRITE TO FILE
+//$test=[["id"=>"1","command"=>"1+1"],["id"=>"2","command"=>"2+2"]];
+//while ($row = $test) {
+//    // print_r($row);
+//    fputcsv($handle, [$row["id"], $row["command"]]);
+//}
+//fclose($handle);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-header('Content-Type: application/json; charset=utf-8');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 
-// (B) CREATE EMPTY CSV FILE ON SERVER
-$csvFile = "export.csv";
-$handle = fopen($csvFile, "w");
-if ($handle === false) { exit("Error creating $csvFile"); }
+require_once('libphp-phpmailer/autoload.php');
 
-// (C) GET USERS FROM DATABASE + WRITE TO FILE
-$stmt = $conn->prepare("SELECT * FROM `system_logs`");
-$stmt->execute();
-while ($row = $stmt->fetch()) {
-    // print_r($row);
-    fputcsv($handle, [$row["id"], $row["command"]]);
+$mail = new PHPMailer (true);
+try {
+
+    $mail->isSMTP();
+    $mail->Host = 'mail.stuba.sk';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'xfrandofer';
+    $mail->Password = 'weC.owy.5.isi';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 25;
+
+    $mail->setFrom('xfrandofer@stuba.sk','webte2');
+    $mail->addAddress('xfrandofer@stuba.sk','erik');
+
+
+//$mail->addAttachment ('mickey.jpg', 'mys.jpg'); // Optional name
+    $file_to_attach = 'export.csv';
+
+    $mail->AddAttachment( $file_to_attach , 'export.csv' );
+
+//Content
+    $mail->isHTML (true);
+// Set email format to HTML
+    $mail->Subject = 'Here is the subject';
+    $mail->Body = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 }
-fclose($handle);
-echo "DONE!";
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-$to = $email;
-$subject = 'Final Project CSV';
-$from_name='Dream Team';
-$from_mail='xkovacik1@stuba.sk';
-$replyto='xkovacik1@stuba.sk';
-
-$fileatt_type = "text/csv";
-$myfile = $csvFile;
-$file_size = filesize($myfile);
-$handle = fopen($myfile, "r");
-$content = fread($handle, $file_size);
-$content = chunk_split(base64_encode($content));
-
-$message = "<html>
-<head>
-  <title>Final Project Logs</title>
-</head>
-<body><table><tr><td>Logs CSV</td></tr></table></body></html>";
-
-$uid = md5(uniqid(time()));
-
-$header = "From: ".$from_name." <".$from_mail.">\r\n";
-$header .= "Reply-To: ".$replyto."\r\n";
-$header .= "MIME-Version: 1.0\r\n";
-$header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-$header .= "This is a multi-part message in MIME format.\r\n";
-$header .= "--".$uid."\r\n";
-$header .= "Content-type:text/html; charset=iso-8859-1\r\n";
-$header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-$header .= $message."\r\n\r\n";
-$header .= "--".$uid."\r\n";
-$header .= "Content-Type: text/csv; name=\"".$myfile."\"\r\n"; // use diff. tyoes here
-$header .= "Content-Transfer-Encoding: base64\r\n";
-$header .= "Content-Disposition: attachment; filename=\"".$myfile."\"\r\n\r\n";
-$header .= $content."\r\n\r\n";
-$header .= "--".$uid."--";
-
-mail($to, $subject, $message, $header);
 ?>
