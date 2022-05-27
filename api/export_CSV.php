@@ -1,4 +1,10 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
 require_once "config.php";
 
 $sql = "SELECT FROM SYSTEM_LOGS";
@@ -23,13 +29,6 @@ foreach ($rows as $row) {
 }
 fclose($fp);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-
-require_once('libphp-phpmailer/autoload.php');
 
 $mail = new PHPMailer (true);
 try {
