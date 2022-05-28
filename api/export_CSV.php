@@ -42,13 +42,13 @@ try {
     $mail->SMTPAuth = true;
 
     //////////////////////////////////
-    $mail->Username = '***REMOVED***';
-    $mail->Password = '***REMOVED***';
+    $mail->Username = $ais_username;
+    $mail->Password = $ais_password;
     ///////////////////////////////////
     $mail->SMTPSecure = 'tls';
     $mail->Port = 25;
 
-    $mail->setFrom('***REMOVED***','webte2');
+    $mail->setFrom($host_email,'webte2');
     $mail->addAddress($email,'Dream team');
 
 
